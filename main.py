@@ -9,8 +9,6 @@ from autoscraper import AutoScraper
 from expression.core import pipe
 from expression.collections import Seq, seq
 
-from autoscraper import AutoScraper
-
 standard_ebooks_url = "https://standardebooks.org/ebooks"
 
 
@@ -88,6 +86,7 @@ def fetch_url(uri):
     return file_name
 
 
+# Start Parallel Downloader
 start = timer()
 results = ThreadPool(8).imap_unordered(fetch_url, books_assets)
 for path in results:
